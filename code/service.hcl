@@ -41,7 +41,7 @@ job "my-service" {
         check {
           type     = "http"
           port     = "http"
-          path     = "/home"
+          path     = "/hello"
           interval = "45s"
           timeout  = "30s"
         }
