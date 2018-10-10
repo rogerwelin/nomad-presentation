@@ -20,11 +20,10 @@ https://github.com/rogerwelin/nomad-presentation.git
 * What is Nomad
 
 - Manages and schedules workloads
-- Workload Reliability out-of the box. Nomad ensures a service "SLA" is fulfilled
 - Supports docker, java and exec drivers
 - Simple design
-- Integrates with Consul (health checks & Service Discovery)
 - Highly available
+- Integrates with Consul (health checks & Service Discovery)
 - Backed by Hashicorp
 
 * Job types in Nomad
@@ -34,7 +33,6 @@ https://github.com/rogerwelin/nomad-presentation.git
 - docker
 - java
 - exec
-- qemu
 
 *Schedulers*
 
@@ -48,8 +46,8 @@ https://github.com/rogerwelin/nomad-presentation.git
 
 Specify the following:
 
-- driver
 - job type
+- driver
 - artifact
 - limits
 - health check
@@ -96,7 +94,5 @@ start nomad
 *Con's*
 
 - Lack of features results in added complexity in service layer (tracing, log collection, robust service discovery)
-
-
 
 

@@ -4,9 +4,9 @@ job "my-service" {
 
   #  A group defines a series of tasks that should be co-located on the same client (host)
   group "my-service" {
-    count = 1
+    count = 2
 
-    # Create an individual task (unit of work)
+    # Task is a unit of work and is executed by a driver
     task "my-service" {
       driver = "raw_exec"
 
@@ -29,7 +29,7 @@ job "my-service" {
         }
       }
 
-      # The service block tells Nomad how to register this service with Consul
+      # Specifies integration with Consul
       service {
         port = "http"
         name = "my-service"
