@@ -1,6 +1,7 @@
 package main
 
 import (
+	"encoding/json"
 	"fmt"
 	"log"
 	"net/http"
@@ -8,8 +9,16 @@ import (
 	"time"
 )
 
-func rootHandler(w http.ResponseWriter, r *http.Request) {
-	fmt.Fprintf(w, "home\n")
+type Hello struct {
+	Msg string `json:"msg"`
+}
+
+func helloHandler(w http.ResponseWriter, r *http.Request) {
+	resp := Hello{
+		Msg: "hello meetup",
+	}
+	json, _ := json.Marshal(resp)
+	fmt.Fprintln(w, string(json))
 }
 
 func main() {
@@ -19,7 +28,7 @@ func main() {
 	}
 
 	router := http.NewServeMux()
-	router.HandleFunc("/home", rootHandler)
+	router.HandleFunc("/hello", helloHandler)
 
 	srv := &http.Server{
 		Addr:         addr,
