@@ -1,0 +1,102 @@
+Nomad @ Pricerunner
+Cluster Orchestration made simple
+15:04 10 Oct 2018
+Tags: nomad
+
+Roger Welin
+DevOps Engineer, Pricerunner AB
+https://github.com/rogerwelin/nomad-presentation.git
+
+* Agenda
+
+- What is Nomad
+- Nomad at Pricerunner
+- Nomad vs Kubernetes
+- Demo
+- Pro's / Con's
+.image images/pr_logo.png
+
+
+* What is Nomad
+
+- Manages and schedules workloads
+- Workload Reliability out-of the box. Nomad ensures a service "SLA" is fulfilled
+- Supports docker, java and exec drivers
+- Simple design
+- Integrates with Consul (health checks & Service Discovery)
+- Highly available
+- Backed by Hashicorp
+
+* Job types in Nomad
+
+*Drivers*
+
+- docker
+- java
+- exec
+- qemu
+
+*Schedulers*
+
+- Service (long lived)
+- Batch (cron expression)
+- System (job on all nodes)
+
+* Job Configuration
+
+- written in hcl format/syntax
+
+Specify the following:
+
+- driver
+- job type
+- artifact
+- limits
+- health check
+
+
+* Nomad at Pricerunner
+
+- 30 nomad workers/clients (VM:s)
+- ~180 CPUs
+- ~600 GB RAM
+- 236 jobs
+
+
+* Nomad vs Kubernetes
+
+- Nomad is designed around the philosophy of doing one thing well (cluster workload management) while Kubernetes is an entire eco-system
+- Big difference in popularity & community size
+- Nomad is simpler to operate...
+- however since it lacks many features you need to implement them yourself
+
+
+* Demo
+
+.image images/demo.jpg
+
+* Demo
+
+start consul
+.play code/consul.sh
+
+start nomad
+.play code/nomad.sh
+
+
+
+* Pro's / Con's
+
+*Pro's*
+
+- Ideal for a on-prem solution
+- Operational simplicity is a huge win
+- Stable
+
+*Con's*
+
+- Lack of features results in added complexity in service layer (tracing, log collection, robust service discovery)
+
+
+
+
